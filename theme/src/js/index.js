@@ -8,6 +8,7 @@ import './vendor/zendesk-watcher-customization';
 export {default as render} from './helpers/preact-renderer';
 export {
 	hasCreateTicketPermission,
+	hasKBPermission,
 	hasWatcherPermission
 } from './helpers/user-permissions';
 

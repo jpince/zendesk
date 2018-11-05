@@ -35,14 +35,8 @@ class TabList extends preact.Component {
 
 		this.state = {
 			activeId: 'tab-0',
-			content: {}
+			content: this.setContent('tab-0')
 		};
-
-		this.setState(
-			{
-				content: this.setContent('tab-0')
-			}
-		);
 	}
 
 	handleClick(event) {
@@ -110,7 +104,11 @@ TabList.PropTypes = {
 	).isRequired
 };
 
-const ProductTabs = ({productItems}) => {
+const ProductTabs = ({kbPermission, productItems}) => {
+	(!kbPermission) {
+		
+	}
+
 	const contentArray = productItems.map(
 		(item, index) => (
 			{
@@ -136,6 +134,7 @@ const ProductTabs = ({productItems}) => {
 };
 
 ProductTabs.PropTypes = {
+	kbPermission: PropTypes.bool.isRequired,
 	productItems: PropTypes.arrayOf(
 		PropTypes.objectOf(
 			PropTypes.shape(
